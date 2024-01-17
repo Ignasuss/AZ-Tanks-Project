@@ -33,10 +33,10 @@ public class Player1 : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    void Shoot()
-    {
-        Instantiate(bulletPrefab, transform.position, transform.rotation);
-    }
+    //void Shoot()
+    //{
+    //    Instantiate(bulletPrefab, transform.position, transform.rotation);
+    //}
 
 
 
