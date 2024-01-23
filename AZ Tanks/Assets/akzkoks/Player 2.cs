@@ -32,14 +32,6 @@ public class Player2 : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Stop the character when it collides with a wall
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            movement = Vector2.zero;
-        }
-    }
 }
 
 

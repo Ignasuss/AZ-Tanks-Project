@@ -33,47 +33,6 @@ public class Player1 : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    //void Shoot()
-    //{
-    //    Instantiate(bulletPrefab, transform.position, transform.rotation);
-    //}
-
-
-
-
-    //public float moveSpeed = 5;
-
-    //void Update()
-    //{
-
-    //    if (Input.GetKey(KeyCode.D))
-    //    {
-    //        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-
-    //    }
-    //    else if (Input.GetKey(KeyCode.A))
-    //    {
-    //        transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
-
-    //    }
-
-    //    else if (Input.GetKey(KeyCode.W))
-    //    {
-    //        transform.position += Vector3.up * moveSpeed * Time.deltaTime;
-
-    //    }
-    //    else if (Input.GetKey(KeyCode.S))
-    //    {
-    //        transform.position += Vector3.up * -moveSpeed * Time.deltaTime;
-
-    //    }
-    //    if (movement != Vector2.zero)
-    //    {
-    //      float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
-    //      transform.rotation = Quaternion.Euler(0f, 0f, angle - 90); // Subtract 90 to adjust for sprite's upward orientation
-    //    }
-    //}
-
 }
 
 
