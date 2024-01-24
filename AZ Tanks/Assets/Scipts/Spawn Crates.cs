@@ -6,7 +6,6 @@ public class SpawnCrates : MonoBehaviour
 {
     
     public GameObject crate1;
-    public GameObject crate2;
     bool shouldspawn =true;
 
     void Spawncrate(){
