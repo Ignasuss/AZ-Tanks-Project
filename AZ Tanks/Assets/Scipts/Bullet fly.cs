@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Bulletfly : MonoBehaviour
 {
     public float Speed;
@@ -38,6 +38,37 @@ public class Bulletfly : MonoBehaviour
 
             // Set canShoot to false to prevent shooting until the bullet is destroyed
             canShoot = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name=="Player 1")
+        {
+            Destroy(collision.gameObject);
+            if(SceneManager.GetActiveScene().name=="Map 1")
+            {
+                SceneManager.LoadScene("Map 2");
+
+            }
+            else
+            {
+                SceneManager.LoadScene("Map 1");
+            }
+        }
+        if (collision.gameObject.name == "Player 2")
+        {
+            Destroy(collision.gameObject);
+
+            if (SceneManager.GetActiveScene().name == "Map 1")
+            {
+                SceneManager.LoadScene("Map 2");
+
+            }
+            else
+            {
+                SceneManager.LoadScene("Map 1");
+            }
         }
     }
 }    
