@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player2 : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     public float moveSpeed;
     private Rigidbody2D rb;
@@ -8,6 +8,7 @@ public class Player2 : MonoBehaviour
     private Vector2 movement;
     public string verticalAxis;
     public string horizontalAxis;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,11 +32,11 @@ public class Player2 : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x + Mathf.Cos(angleInRadians) * Time.deltaTime*moveSpeed, transform.position.y + Mathf.Sin(angleInRadians) * Time.deltaTime*moveSpeed);
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(0, 0, -rotateSpeed * Time.deltaTime);
         }
@@ -53,5 +54,3 @@ public class Player2 : MonoBehaviour
     //}
 
 }
-
-

@@ -811,7 +811,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crate1: {fileID: 200096802}
-  crate2: {fileID: 0}
 --- !u!1 &597143563
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,6 +3282,18 @@ PrefabInstance:
     - target: {fileID: 4405651315186855422, guid: d0734886d4b851543a61c7a0e72dbd98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142881318228715728, guid: d0734886d4b851543a61c7a0e72dbd98, type: 3}
+      propertyPath: rotateSpeed
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142881318228715728, guid: d0734886d4b851543a61c7a0e72dbd98, type: 3}
+      propertyPath: verticalAxis
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142881318228715728, guid: d0734886d4b851543a61c7a0e72dbd98, type: 3}
+      propertyPath: horizontalAxis
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
