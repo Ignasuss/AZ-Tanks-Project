@@ -175,8 +175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotateSpeed: 180
-  verticalAxis: 90
-  horizontalAxis: 90
+  verticalAxis: 120
+  horizontalAxis: 120
 --- !u!114 &8507368671673891562
 MonoBehaviour:
   m_ObjectHideFlags: 0
