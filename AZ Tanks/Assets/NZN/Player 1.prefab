@@ -205,9 +205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  rotateSpeed: 180
-  verticalAxis: 120
-  horizontalAxis: 120
+  rotateSpeed: 250
+  healthOb1: {fileID: 6354142257386916172, guid: 6984b1deb04df5f48bcc5ac8b89b89ec, type: 3}
 --- !u!114 &3186978291133290790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,3 +221,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingPoint: {fileID: 7300143312596290700}
   bulletPrefab: {fileID: 8541594185213104153, guid: 5f95a3b77b941fa4b91ffd9d1eef5200, type: 3}
+  shrapnel: {fileID: 1296799279912489246, guid: 02a81b2b006887e48a616adb3fe47735, type: 3}
+  bulletPrefabBomb: {fileID: 2952753934040066878, guid: 839721490bcb70645a0734ed55e081a2, type: 3}
+  key: c

@@ -6,8 +6,10 @@ public class Shoot : MonoBehaviour
 {
     public Transform shootingPoint;
     public GameObject bulletPrefab;
+    public GameObject shrapnel;
     public GameObject bulletPrefabBomb;
     public string key;
+    private GameObject temp;
     private float cooldown = 0f;
     private bool b = true;
     private float a = 5f;
@@ -16,19 +18,25 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         if(b)cooldown += Time.deltaTime;
-        if (key == "c" ? Keyboard.current.cKey.wasPressedThisFrame : Keyboard.current.nKey.wasPressedThisFrame && cooldown >= a && b)
+        if ((key == "c" ? Keyboard.current.cKey.wasPressedThisFrame : Keyboard.current.nKey.wasPressedThisFrame) && cooldown >= a && b)
         {
             cooldown = 0f;
-            Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
+            Instantiate(a==0.5f?shrapnel:bulletPrefab, shootingPoint.position, transform.rotation);
         }
-        if (!b && !shot && key == "c" ? Keyboard.current.cKey.wasPressedThisFrame : Keyboard.current.nKey.wasPressedThisFrame)
+        if (!b && !shot && (key == "c" ? Keyboard.current.cKey.wasPressedThisFrame : Keyboard.current.nKey.wasPressedThisFrame))
         {
             shot = true;
-            Instantiate(bulletPrefabBomb, shootingPoint.position, transform.rotation);
+            temp = Instantiate(bulletPrefabBomb, shootingPoint.position, transform.rotation);
+            temp.name = $"Bomb{(key=="c"?"1":"2")}";
             cooldown = 0f;
         }
         if(!b && shot)
         {
+            if ((key == "c" ? Keyboard.current.cKey.wasPressedThisFrame : Keyboard.current.nKey.wasPressedThisFrame) && cooldown > 1f)
+            {
+                Destroy(temp);
+                temp = null;
+            }
             cooldown += Time.deltaTime;
             if(cooldown > c)
             {
@@ -42,7 +50,7 @@ public class Shoot : MonoBehaviour
     {
         if(collision.gameObject.name.Contains("3") && b)
         {
-            a = 1f;
+            a = 0.5f;
             cooldown = a;
             Destroy(collision.gameObject);
         }

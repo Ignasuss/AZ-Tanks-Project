@@ -1,19 +1,22 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System;
 
 public class Player1 : MonoBehaviour
 {
     public float moveSpeed;
-    private Rigidbody2D rb;
     public float rotateSpeed;
-    private Vector2 movement;
-    public string verticalAxis;
-    public string horizontalAxis;
+    private float health = 100;
+    private GameObject health1;
+    public GameObject healthOb1;
+    private float origX;
 
-    void Start()
+
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        health1 = Instantiate(healthOb1, position: new Vector3(-2.488098f, -5.226721f), rotation: Quaternion.identity);
+        origX = health1.transform.localScale.x;
     }
-
     void Update()
     {
 
@@ -37,6 +40,23 @@ public class Player1 : MonoBehaviour
             transform.Rotate(0, 0, -rotateSpeed * Time.deltaTime);
         }
 
+    }
+
+    public void reduceHealth(float amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            if (SceneManager.GetActiveScene().name.Contains("6")) SceneManager.LoadScene("1");
+
+            SceneManager.LoadScene((Convert.ToInt32(SceneManager.GetActiveScene().name) + 1).ToString());
+        }
+        else
+        {
+            health1.GetComponent<Transform>().localScale = new Vector2(origX*(health/100f), health1.GetComponent<Transform>().localScale.y);
+            health1.GetComponent<Transform>().position = new Vector2(-5f+ health1.GetComponent<Transform>().localScale.x/2, health1.GetComponent<Transform>().position.y);
+
+        }
     }
 
 

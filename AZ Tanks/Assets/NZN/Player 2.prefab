@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4120136745328131660}
   - component: {fileID: 777454171515227175}
   - component: {fileID: 9142881318228715728}
-  - component: {fileID: 8507368671673891562}
+  - component: {fileID: -5131921713514276226}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -174,10 +174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  rotateSpeed: 180
-  verticalAxis: 120
-  horizontalAxis: 120
---- !u!114 &8507368671673891562
+  rotateSpeed: 250
+  healthOb2: {fileID: 8844657577499275743, guid: dac4a82347e54ee4896a67a9a12963ae, type: 3}
+--- !u!114 &-5131921713514276226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,11 +185,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2954658526004342086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fcfad7ab787f9a48abc7d141299db44, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d02b8b74e4b5914fb28e549ef33f146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootingPoint: {fileID: 774705492392544978}
   bulletPrefab: {fileID: 8541594185213104153, guid: 5f95a3b77b941fa4b91ffd9d1eef5200, type: 3}
+  shrapnel: {fileID: 1296799279912489246, guid: 02a81b2b006887e48a616adb3fe47735, type: 3}
+  bulletPrefabBomb: {fileID: 2952753934040066878, guid: 839721490bcb70645a0734ed55e081a2, type: 3}
+  key: n
 --- !u!1 &5635381938556654205
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 774705492392544978}
   m_Layer: 0
-  m_Name: ShootingPoint
+  m_Name: ShootingPoint2
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
