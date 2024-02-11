@@ -1,2 +1,3 @@
-My small simple tanks game
-https://play.unity.com/p/nu-taip-8/edit
+My small simple tanks game 
+https://play.unity.com/mg/other/nu-taip-8
+
