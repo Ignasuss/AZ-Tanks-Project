@@ -46,15 +46,19 @@ public class Player2 : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
-            if (SceneManager.GetActiveScene().name.Contains("6")) SceneManager.LoadScene("1");
-
-            SceneManager.LoadScene((Convert.ToInt32(SceneManager.GetActiveScene().name) + 1).ToString());
+            Invoke("Die", 3f);
         }
         else
         {
             health2.GetComponent<Transform>().localScale = new Vector2(origX * (health / 100f), health2.GetComponent<Transform>().localScale.y);
             health2.GetComponent<Transform>().position = new Vector2(5f - health2.GetComponent<Transform>().localScale.x / 2, health2.GetComponent<Transform>().position.y);
         }
+    }
+
+    private void Die()
+    {
+        if (SceneManager.GetActiveScene().name.Contains("6")) SceneManager.LoadScene("1");
+        SceneManager.LoadScene((Convert.ToInt32(SceneManager.GetActiveScene().name) + 1).ToString());
     }
 }
 
