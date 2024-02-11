@@ -12,6 +12,7 @@ public class Player2 : MonoBehaviour
     private GameObject health2;
     public GameObject healthOb2;
     private float origX;
+    private bool dead = false;
     private void Start()
     {
         health2 = Instantiate(healthOb2, position: new Vector3(2.5f, -5.226721f), rotation: Quaternion.identity);
@@ -19,26 +20,33 @@ public class Player2 : MonoBehaviour
     }
     public void Update()
     {
+        if (!dead)
+        {
+            float angleInRadians = Mathf.Deg2Rad * (transform.rotation.eulerAngles.z - 90f);
+            if (Input.GetKey(KeyCode.I))
+            {
 
-        float angleInRadians = Mathf.Deg2Rad * (transform.rotation.eulerAngles.z - 90f);
-        if (Input.GetKey(KeyCode.I))
-        {
+                transform.position = new Vector2(transform.position.x - Mathf.Cos(angleInRadians) * Time.deltaTime * moveSpeed, transform.position.y - Mathf.Sin(angleInRadians) * Time.deltaTime * moveSpeed);
+            }
 
-            transform.position = new Vector2(transform.position.x - Mathf.Cos(angleInRadians) * Time.deltaTime * moveSpeed, transform.position.y - Mathf.Sin(angleInRadians) * Time.deltaTime * moveSpeed);
+            if (Input.GetKey(KeyCode.K))
+            {
+                transform.position = new Vector2(transform.position.x + Mathf.Cos(angleInRadians) * Time.deltaTime * moveSpeed, transform.position.y + Mathf.Sin(angleInRadians) * Time.deltaTime * moveSpeed);
+            }
+            if (Input.GetKey(KeyCode.J))
+            {
+                transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.L))
+            {
+                transform.Rotate(0, 0, -rotateSpeed * Time.deltaTime);
+            }
         }
-
-        if (Input.GetKey(KeyCode.K))
+        else
         {
-            transform.position = new Vector2(transform.position.x + Mathf.Cos(angleInRadians) * Time.deltaTime * moveSpeed, transform.position.y + Mathf.Sin(angleInRadians) * Time.deltaTime * moveSpeed);
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(gameObject.GetComponent<SpriteRenderer>().color.r, gameObject.GetComponent<SpriteRenderer>().color.g, gameObject.GetComponent<SpriteRenderer>().color.b, gameObject.GetComponent<SpriteRenderer>().color.a-Time.deltaTime/3);
         }
-        if (Input.GetKey(KeyCode.J))
-        {
-            transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.L))
-        {
-            transform.Rotate(0, 0, -rotateSpeed * Time.deltaTime);
-        }
+        
     }
 
     public void reduceHealth(float amount)
@@ -47,12 +55,11 @@ public class Player2 : MonoBehaviour
         if (health <= 0)
         {
             Invoke("Die", 3f);
+            dead = true;
         }
-        else
-        {
-            health2.GetComponent<Transform>().localScale = new Vector2(origX * (health / 100f), health2.GetComponent<Transform>().localScale.y);
-            health2.GetComponent<Transform>().position = new Vector2(5f - health2.GetComponent<Transform>().localScale.x / 2, health2.GetComponent<Transform>().position.y);
-        }
+        health2.GetComponent<Transform>().localScale = new Vector2(origX * (health / 100f < 0 ? 0 : health / 100f), health2.GetComponent<Transform>().localScale.y);
+        health2.GetComponent<Transform>().position = new Vector2(5f - health2.GetComponent<Transform>().localScale.x / 2, health2.GetComponent<Transform>().position.y);
+
     }
 
     private void Die()
