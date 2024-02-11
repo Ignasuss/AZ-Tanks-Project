@@ -5,7 +5,7 @@ public class SceneChanger : MonoBehaviour
 {
     public void ChangeScene()
     {
-        SceneManager.LoadSceneAsync("Map 1");
+        SceneManager.LoadSceneAsync("1");
 
     }
 }
